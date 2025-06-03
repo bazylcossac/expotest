@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable, StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 interface ButtonProps {
   value: string;
@@ -9,7 +9,14 @@ interface ButtonProps {
 export default function ButtonComponent({ value, action }: ButtonProps) {
   return (
     <View style={style.ButtonView}>
-      <Pressable style={style.ButtonStyle}>{value}</Pressable>
+      <Pressable
+        style={({ pressed }) => [
+          style.ButtonStyle,
+          pressed && style.ButtonPressed,
+        ]}
+      >
+        <Text style={style.TextStyle}>{value}</Text>
+      </Pressable>
     </View>
   );
 }
@@ -19,10 +26,20 @@ const style = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    width: 55,
+  },
+  ButtonPressed: {
+    backgroundColor: "#0010AA",
   },
   ButtonStyle: {
-    paddingHorizontal: 10,
-    paddingVertical: 10,
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    backgroundColor: "#0010FF",
+    borderRadius: 100,
+  },
+
+  TextStyle: {
     color: "white",
+    fontSize: 20,
   },
 });

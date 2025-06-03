@@ -1,29 +1,35 @@
 import ButtonComponent from "@/components/Button";
+import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 
 export default function HomeScreen() {
+  const [numbers, setNumbers] = useState<string[]>([]);
   return (
-    <View>
+    <View style={styles.mainView}>
+      <ButtonComponent value="1" action={() => console.log(3)} />
+      <ButtonComponent value="2" action={() => console.log(3)} />
       <ButtonComponent value="3" action={() => console.log(3)} />
+      <ButtonComponent value="4" action={() => console.log(3)} />
+      <ButtonComponent value="5" action={() => console.log(3)} />
+      <ButtonComponent value="6" action={() => console.log(3)} />
+      <ButtonComponent value="7" action={() => console.log(3)} />
+      <ButtonComponent value="8" action={() => console.log(3)} />
+      <ButtonComponent value="9" action={() => console.log(3)} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
+  mainView: {
+    color: "blue",
+    display: "flex",
     flexDirection: "row",
+    flexGrow: 1,
+    flexWrap: "wrap",
+  },
+  ButtonView: {
+    display: "flex",
+    justifyContent: "center",
     alignItems: "center",
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
   },
 });
