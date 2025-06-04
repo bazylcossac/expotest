@@ -7,25 +7,54 @@ const deviceWidth = Dimensions.get("window").width;
 const deviceHeight = Dimensions.get("window").height;
 
 export default function HomeScreen() {
-  const [numbers, setNumbers] = useState<string[]>([]);
+  const [numbers, setNumbers] = useState<string[]>(["1"]);
   return (
     <View style={styles.mainView}>
-      <CalcMain numbers={numbers} />
+      <View style={styles.CalcViewStyle}>
+        <CalcMain numbers={numbers} />
+      </View>
       <View style={styles.KeyboardWrapper}>
         <View style={styles.ButtonGroup}>
-          <ButtonComponent value="1" action={() => console.log(3)} />
-          <ButtonComponent value="2" action={() => console.log(3)} />
-          <ButtonComponent value="3" action={() => console.log(3)} />
+          <ButtonComponent
+            value="1"
+            action={() => setNumbers((prev) => [...prev, "1"])}
+          />
+          <ButtonComponent
+            value="2"
+            action={() => setNumbers((prev) => [...prev, "2"])}
+          />
+          <ButtonComponent
+            value="3"
+            action={() => setNumbers((prev) => [...prev, "3"])}
+          />
         </View>
         <View style={styles.ButtonGroup}>
-          <ButtonComponent value="4" action={() => console.log(3)} />
-          <ButtonComponent value="5" action={() => console.log(3)} />
-          <ButtonComponent value="6" action={() => console.log(3)} />
+          <ButtonComponent
+            value="4"
+            action={() => setNumbers((prev) => [...prev, "4"])}
+          />
+          <ButtonComponent
+            value="5"
+            action={() => setNumbers((prev) => [...prev, "5"])}
+          />
+          <ButtonComponent
+            value="6"
+            action={() => setNumbers((prev) => [...prev, "6"])}
+          />
         </View>
         <View style={styles.ButtonGroup}>
-          <ButtonComponent value="7" action={() => console.log(3)} />
-          <ButtonComponent value="8" action={() => console.log(3)} />
-          <ButtonComponent value="9" action={() => console.log(3)} />
+          <ButtonComponent
+            value="7"
+            action={() => setNumbers((prev) => [...prev, "7"])}
+          />
+          <ButtonComponent
+            value="8"
+            action={() => setNumbers((prev) => [...prev, "8"])}
+          />
+          <ButtonComponent
+            value="9"
+            action={() => setNumbers((prev) => [...prev, "9"])}
+          />
         </View>
       </View>
     </View>
@@ -34,22 +63,24 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   mainView: {
-    backgroundColor: "red",
-    color: "blue",
     display: "flex",
-    flexDirection: "row",
-    flexGrow: 1,
-    flexWrap: "wrap",
+    paddingVertical: 40,
+    flex: 1,
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  CalcViewStyle: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   KeyboardWrapper: {
-    backgroundColor: "yellow",
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "flex-end",
-    paddingBottom: 60,
+    marginTop: "auto",
     width: deviceWidth,
-    height: deviceHeight,
   },
   ButtonGroup: {
     display: "flex",

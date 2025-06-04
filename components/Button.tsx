@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 interface ButtonProps {
   value: string;
-  action: (value: string) => void;
+  action: () => void;
 }
 
 export default function ButtonComponent({ value, action }: ButtonProps) {
@@ -14,6 +14,7 @@ export default function ButtonComponent({ value, action }: ButtonProps) {
           style.ButtonStyle,
           pressed && style.ButtonPressed,
         ]}
+        onPress={action}
       >
         <Text style={style.TextStyle}>{value}</Text>
       </Pressable>
