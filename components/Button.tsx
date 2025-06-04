@@ -27,6 +27,7 @@ const style = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: 55,
+    margin: 10,
   },
   ButtonPressed: {
     backgroundColor: "#0010AA",
