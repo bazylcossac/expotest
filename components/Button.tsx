@@ -2,7 +2,7 @@ import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 interface ButtonProps {
-  value: string;
+  value: number | string;
   action: () => void;
 }
 

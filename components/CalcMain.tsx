@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     width: deviceWidth,
+    paddingHorizontal: 20,
   },
   textStyle: {
     fontSize: 25,
